@@ -24,7 +24,21 @@ class MyHomePage extends StatelessWidget {
         centerTitle: true,
         title: Text("Expenses"),
       ),
-      body: Center(child: Text("Iniciando meu projeto")),
+      body: Column(
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            child: Card(
+              child: Text("Colocar o grafico aqui"),
+              color: Colors.blue,
+              elevation: 5,
+            ),
+          ),
+          Card(
+            child: Text("Lista das transações"),
+          )
+        ],
+      ),
     );
   }
 }
