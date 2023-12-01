@@ -1,5 +1,6 @@
 import 'package:finance_control/models/transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 main() => runApp(ExpensesApp());
 
@@ -15,6 +16,9 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final titleController = TextEditingController();
+  final valueController = TextEditingController();
+
   final List<Transaction> _transactions = [
     Transaction(
       id: "t1",
@@ -41,7 +45,6 @@ class MyHomePage extends StatelessWidget {
         title: Text("Expenses"),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -69,7 +72,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        transactionMap.value.toString(),
+                        "R\$ ${transactionMap.value.toStringAsFixed(2)}",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -88,7 +91,7 @@ class MyHomePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          transactionMap.date.toString(),
+                          DateFormat("d MMM y").format(transactionMap.date),
                           style: TextStyle(color: Colors.grey),
                         )
                       ],
@@ -97,7 +100,41 @@ class MyHomePage extends StatelessWidget {
                 ),
               );
             }).toList(),
-          )
+          ),
+          Card(
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    controller: titleController,
+                    decoration: InputDecoration(
+                      labelText: "Title",
+                    ),
+                  ),
+                  TextField(
+                    controller: valueController,
+                    decoration: InputDecoration(
+                      labelText: "Value (R\$)",
+                    ),
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.purple,
+                    ),
+                    onPressed: () {
+                      print(titleController.text);
+                      print(valueController.text);
+                    },
+                    child: Text(
+                      "New Transaction",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
