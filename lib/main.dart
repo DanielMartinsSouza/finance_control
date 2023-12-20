@@ -21,6 +21,32 @@ class _ExpensesAppState extends State<ExpensesApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.amber,
+        ),
+        fontFamily: "Quicksand",
+        textTheme: const TextTheme(
+          titleMedium: TextStyle(
+            fontFamily: "OpensSans",
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),
+          bodyMedium: TextStyle(
+            fontFamily: "OpensSans",
+            fontSize: 18,
+            fontWeight: FontWeight.bold
+          ),
+        ),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: "OpensSans",
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
     );
   }
 }
@@ -82,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.add),
           ),
         ],
-        backgroundColor: Colors.blue,
+        backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         title: Text("Expenses"),
       ),
@@ -102,7 +128,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue,
         onPressed: () => _openTransactionFormModal(context),
         child: Icon(Icons.add),
       ),
