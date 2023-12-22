@@ -29,15 +29,13 @@ class _ExpensesAppState extends State<ExpensesApp> {
         fontFamily: "Quicksand",
         textTheme: const TextTheme(
           titleMedium: TextStyle(
-            fontFamily: "OpensSans",
-            fontSize: 20,
-            fontWeight: FontWeight.bold
-          ),
+              fontFamily: "OpensSans",
+              fontSize: 20,
+              fontWeight: FontWeight.bold),
           bodyMedium: TextStyle(
-            fontFamily: "OpensSans",
-            fontSize: 18,
-            fontWeight: FontWeight.bold
-          ),
+              fontFamily: "OpensSans",
+              fontSize: 18,
+              fontWeight: FontWeight.bold),
         ),
         appBarTheme: const AppBarTheme(
           titleTextStyle: TextStyle(
@@ -60,18 +58,18 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [
-    Transaction(
-      id: "t1",
-      title: "Tenis",
-      value: 300.90,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t2",
-      title: "Camisa",
-      value: 150.50,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: "t1",
+    //   title: "Tenis",
+    //   value: 300.90,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t2",
+    //   title: "Camisa",
+    //   value: 150.50,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   _openTransactionFormModal(BuildContext context) {
