@@ -20,12 +20,26 @@ class _ExpensesAppState extends State<ExpensesApp> {
     return MaterialApp(
       home: MyHomePage(),
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+              backgroundColor:
+                  MaterialStateProperty.all(Theme.of(context).primaryColor),
+              textStyle: MaterialStateProperty.all(
+                const TextStyle(
+                    color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+              iconColor: MaterialStateProperty.all(Colors.white)),
+        ),
+        primaryColor: Colors.deepPurpleAccent,
+        primarySwatch: Colors.deepPurple,
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Colors.amber,
+          backgroundColor: Colors.deepPurpleAccent,
         ),
         fontFamily: "Quicksand",
         textTheme: const TextTheme(
+          labelLarge: TextStyle(
+            color: Colors.white,
+          ),
           titleMedium: TextStyle(
               fontFamily: "OpensSans",
               fontSize: 20,
@@ -132,7 +146,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _openTransactionFormModal(context),
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          color: Theme.of(context)
+              .elevatedButtonTheme
+              .style
+              ?.iconColor
+              ?.resolve({}),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

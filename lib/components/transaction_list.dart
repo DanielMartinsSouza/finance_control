@@ -46,15 +46,15 @@ class TransactionList extends StatelessWidget {
                         padding: const EdgeInsets.all(6),
                         child: FittedBox(
                             child: Text(
-                                "R\$${transactions[index].value.toStringAsFixed(2)}")),
+                                "R\$${transactioIndex.value.toStringAsFixed(2)}")),
                       ),
                     ),
                     title: Text(
-                      transactions[index].title,
+                      transactioIndex.title,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                     subtitle: Text(
-                      DateFormat("d MMM y").format(transactions[index].date),
+                      DateFormat("d MMM y").format(transactioIndex.date),
                       style: TextStyle(color: Colors.grey),
                     ),
                   ),
