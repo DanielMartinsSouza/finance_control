@@ -87,6 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  _removeTransaction(String id) {
+    setState(() {
+      _transactions.removeWhere((transaction) => transaction.id == id);
+    });
+  }
+
   _addTransaction(String title, double value, DateTime date) {
     final Transaction newTransaction = Transaction(
       id: Random().nextDouble().toString(),
@@ -121,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(_transactions),
+            TransactionList(_transactions, _removeTransaction),
           ],
         ),
       ),
