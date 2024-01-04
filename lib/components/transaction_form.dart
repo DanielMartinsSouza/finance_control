@@ -71,9 +71,7 @@ class _TransactionFormState extends State<TransactionForm> {
                 children: <Widget>[
                   Expanded(
                     child: Text(
-                      _selectedDate == null
-                          ? "No data selected!"
-                          : "Date: ${DateFormat("dd/MM/y").format(_selectedDate)}",
+                      "Date: ${DateFormat("dd/MM/y").format(_selectedDate)}",
                     ),
                   ),
                   TextButton(
